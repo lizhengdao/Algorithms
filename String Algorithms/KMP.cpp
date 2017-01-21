@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 #define MAX 1000001
 using namespace std;
-int P[MAX];
 //Knuth-Morris-Pratt algorithm for string matching
 //Complexity: O(N + M)
 
 vector<int> KMP(string needle, string haystack)
 {
     vector<int> matches;
+    int P[MAX];
     int i, j, n = haystack.size(), m = needle.size();
     for (i = 0; i < m; i++)
         P[i] = -1;
@@ -38,6 +38,10 @@ int main()
 {
     string haystack = "abcdmcbabcadccbdbcacscbababcdef", needle = "abc";
     vector<int> matches = KMP(needle, haystack);
+    for (int i = 0; i < matches.size(); i++)
+        cout << matches[i] << " ";
+    cout << "\n";
+    matches = KMP("cd", "abcdbdca");
     for (int i = 0; i < matches.size(); i++)
         cout << matches[i] << " ";
     cout << "\n";

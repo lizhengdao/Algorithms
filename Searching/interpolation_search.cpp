@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 //interpolation search in array
-int interpolation_search(int arr[], int size, int e)
+int interpolation_search(const int arr[], const int size, const int e)
 {   int lo=0,hi=size-1,mid;
     while(lo<=hi)
     {

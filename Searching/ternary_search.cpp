@@ -2,7 +2,7 @@
 using namespace std;
 //generic ternary search in array
 template <typename T>
-int ternary_search(T arr[], int size, T e)
+int ternary_search(const T arr[], const int size, const T e)
 {
     int lo = 0, hi = size - 1, p1, p2;
     while (lo <= hi)
@@ -27,7 +27,7 @@ int ternary_search(T arr[], int size, T e)
 }
 int main()
 {
-    int a[8] = {-35, -12, -1, 0, 6, 20, 42, 987};   //array should be sorted
+    int a[8] = {-35, -12, -1, 0, 6, 20, 42, 987}; //array should be sorted
     cout << ternary_search(a, 8, -12) << "\n";
     cout << ternary_search(a, 8, 2);
     return 0;

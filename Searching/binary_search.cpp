@@ -2,7 +2,7 @@
 using namespace std;
 //generic binary search in array
 template <typename T>
-int binary_search(T arr[], int size, T e)
+int binary_search(const T arr[], const int size, const T e)
 {
     int lo = 0, hi = size - 1, mid;
     while (lo <= hi)
@@ -19,7 +19,7 @@ int binary_search(T arr[], int size, T e)
 }
 int main()
 {
-    int a[8] = {-35, -12, -1, 0, 6, 20, 42, 987};   //array should be sorted
+    int a[8] = {-35, -12, -1, 0, 6, 20, 42, 987}; //array should be sorted
     cout << binary_search(a, 8, -12) << "\n";
     cout << binary_search(a, 8, 2);
     return 0;
