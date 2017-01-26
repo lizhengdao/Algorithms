@@ -1,18 +1,18 @@
 #include <iostream>
 using namespace std;
-void set(long long &num, int pos)
+void set(long long &num, const int pos)
 {
     num |= (1 << pos);
 }
-void unset(long long &num, int pos)
+void unset(long long &num, const int pos)
 {
     num &= (~(1 << pos));
 }
-void toggle(long long &num, int pos)
+void toggle(long long &num, const int pos)
 {
     num ^= (1 << pos);
 }
-bool is_set(long long num, int pos)
+bool is_set(const long long num, const int pos)
 {
     return num & (1 << pos);
 }

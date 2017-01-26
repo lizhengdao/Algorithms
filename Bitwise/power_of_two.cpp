@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-bool isPowerOfTwo(long long x)
+bool isPowerOfTwo(const long long x)
 {
     return (x && !(x & (x - 1)));
 }

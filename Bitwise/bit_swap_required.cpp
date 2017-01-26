@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int BitSwapReqd(int A, int B)
+int BitSwapReqd(const int A, const int B)
 {
     int count = 0, x = A ^ B;
     for (; x != 1; x /= 2)
