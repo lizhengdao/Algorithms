@@ -2,7 +2,7 @@
 using namespace std;
 //generic bubble sort function using templates
 template <typename T>
-void bubblesort(T a[], T n)
+void bubblesort(T a[], const int n)
 {
     T i, j, temp;
     for (i = 0; i < n; i++)

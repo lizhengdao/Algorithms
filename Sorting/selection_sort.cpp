@@ -2,7 +2,7 @@
 using namespace std;
 //generic selection sort function using templates
 template <typename T>
-void selectionsort(T a[], T n)
+void selectionsort(T a[], const int n)
 {
     T i, j, m, temp; // m for min or max
     for (i = 0; i < n - 1; i++)

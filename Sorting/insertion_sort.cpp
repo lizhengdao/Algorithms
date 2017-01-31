@@ -2,7 +2,7 @@
 using namespace std;
 //generic insertion sort function using templates
 template <typename T>
-void insertionsort(T a[], T n)
+void insertionsort(T a[], const int n)
 {
     T i, j, key;
     for (i = 1; i < n; i++)
