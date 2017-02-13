@@ -3,7 +3,7 @@ using namespace std;
 //cocktail sort (also known as bidirectional bubble sort, cocktail shaker sort, martini sort, ripple sort, shuffle sort, or shuttle sort)
 //The algorithm differs from bubble sort in that it sorts in both directions on each pass through the list
 //Complexity : O(n^2)
-//generic bubble sort function using templates
+//generic bidirectional bubble sort function using templates
 template <typename T>
 void cocktailsort(T a[], int n)
 {
