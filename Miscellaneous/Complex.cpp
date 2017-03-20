@@ -1,5 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
+class DivisionByZeroException : public exception
+{
+    virtual const char *what() const throw()
+    {
+        return "\nDivision by zero is not defined\n";
+    }
+};
 class Complex
 {
   private:
@@ -26,8 +33,7 @@ class Complex
     }
     Complex conjugate()
     {
-        Complex c(real, -imag);
-        return c;
+        return Complex(real, -imag);
     }
     long double modulus()
     {
@@ -35,38 +41,64 @@ class Complex
     }
     Complex reciprocal()
     {
-        long double mod = this->modulus();
-        Complex C(real / mod, -imag / mod);
-        return C;
+        long double deno = (real * real) + (imag * imag);
+        if (deno == 0)
+        {
+            DivisionByZeroException e;
+            throw e;
+        }
+        return Complex(real / deno, -imag / deno);
     }
     Complex root()
     {
         long double mod = this->modulus();
-        Complex C(sqrt((mod + real) / 2), sqrt((mod - real) / 2));
-        return C;
+        return Complex(sqrt((mod + real) / 2), sqrt((mod - real) / 2));
     }
     //operators
     Complex operator+(Complex c2)
     {
-        Complex C(real + c2.getReal(), imag + c2.getImag());
-        return C;
+        return Complex(real + c2.getReal(), imag + c2.getImag());
     }
     Complex operator-(Complex c2)
     {
-        Complex C(real - c2.getReal(), imag - c2.getImag());
-        return C;
+        return Complex(real - c2.getReal(), imag - c2.getImag());
     }
     Complex operator*(Complex c2)
     {
         long double a = real, b = imag, c = c2.getReal(), d = c2.getImag();
-        Complex C((a * c) - (b * d), (b * c) + (a * d));
-        return C;
+        return Complex((a * c) - (b * d), (b * c) + (a * d));
     }
     Complex operator/(Complex c2)
     {
-        long double a = real, b = imag, c = c2.getReal(), d = c2.getImag(), mod = c2.modulus();
-        Complex C(((a * c) + (b * d)) / mod, ((b * c) - (a * d)) / mod);
-        return C;
+        long double a = real, b = imag, c = c2.getReal(), d = c2.getImag(), deno = (c * c) + (d * d);
+        if (deno == 0)
+        {
+            DivisionByZeroException e;
+            throw e;
+        }
+        return Complex(((a * c) + (b * d)) / deno, ((b * c) - (a * d)) / deno);
+    }
+    void operator+=(Complex c2)
+    {
+        real += c2.getReal();
+        imag += c2.getImag();
+    }
+    void operator-=(Complex c2)
+    {
+        real -= c2.getReal();
+        imag -= c2.getImag();
+    }
+    void operator*=(Complex c2)
+    {
+        Complex c = Complex(real, imag) * c2;
+        real = c.getReal();
+        imag = c.getImag();
+    }
+    void operator/=(Complex c2)
+    {
+        Complex c = Complex(real, imag) / c2;
+        real = c.getReal();
+        imag = c.getImag();
     }
     bool operator==(Complex c2)
     {
@@ -88,9 +120,7 @@ Complex power(Complex c1, int n)
 {
     Complex C(1, 0);
     while (n--)
-    {
         C = C * c1;
-    }
     return C;
 }
 int main()
@@ -109,5 +139,15 @@ int main()
     c3 = c1.root();
     cout << c3.toString() << "\n";
     c3 = power(c1, 2);
+    cout << c3.toString() << "\n";
+    c3 += c2;
+    cout << c3.toString() << "\n";
+    c3 -= c2;
+    cout << c3.toString() << "\n";
+    c3 *= c2;
+    cout << c3.toString() << "\n";
+    c3 /= c2;
+    cout << c3.toString() << "\n";
+    c3 /= Complex(0, 0);
     cout << c3.toString() << "\n";
 }
