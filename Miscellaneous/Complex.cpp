@@ -104,6 +104,16 @@ class Complex
     {
         return ((real == c2.getReal()) && (imag == c2.getImag()));
     }
+    friend ostream &operator<<(ostream &output, Complex &c)
+    {   
+        output << c.toString();
+        return output;
+    }
+    friend istream &operator>>(istream &input, Complex &c)
+    {   
+        input >> c.real >> c.imag;
+        return input;
+    }
     //utility functions
     string toString()
     {
@@ -129,25 +139,28 @@ int main()
     c3 = c1 + c2;
     cout << c3.toString() << "\n";
     c3 = c1 - c2;
-    cout << c3.toString() << "\n";
+    cout << c3 << "\n";
     c3 = c1 * c2;
     cout << c3.toString() << "\n";
     c3 = c1 / c2;
-    cout << c3.toString() << "\n";
+    cout << c3 << "\n";
     c3 = c1.reciprocal();
     cout << c3.toString() << "\n";
     c3 = c1.root();
-    cout << c3.toString() << "\n";
+    cout << c3 << "\n";
     c3 = power(c1, 2);
-    cout << c3.toString() << "\n";
+    cout << c3 << "\n";
     c3 += c2;
     cout << c3.toString() << "\n";
     c3 -= c2;
-    cout << c3.toString() << "\n";
+    cout << c3 << "\n";
     c3 *= c2;
     cout << c3.toString() << "\n";
     c3 /= c2;
-    cout << c3.toString() << "\n";
+    cout << c3 << "\n";
+    cin >> c3;
+    cout << c3 << "\n";
     c3 /= Complex(0, 0);
-    cout << c3.toString() << "\n";
+    cout << c3;
+    return 0;
 }
