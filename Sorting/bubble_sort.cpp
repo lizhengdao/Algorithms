@@ -4,7 +4,8 @@ using namespace std;
 template <typename T>
 void bubblesort(T a[], const int n)
 {
-    T i, j, temp;
+    int i, j;
+    T temp;
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < n - i - 1; j++)

@@ -4,7 +4,8 @@ using namespace std;
 template <typename T>
 void insertionsort(T a[], const int n)
 {
-    T i, j, key;
+    int i, j;
+    T key;
     for (i = 1; i < n; i++)
     {
         key = a[i];

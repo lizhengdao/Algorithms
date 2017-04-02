@@ -4,14 +4,15 @@ using namespace std;
 template <typename T>
 void selectionsort(T a[], const int n)
 {
-    T i, j, m, temp; // m for min or max
+    int i, j, m; // m for min or max
+    T temp;
     for (i = 0; i < n - 1; i++)
     {
         m = i;
         for (j = i + 1; j < n; j++)
         {
-            if (a[m] > a[j])
-                m = j; // > for non-decreasing order, < for non-increasing order
+            if (a[m] > a[j]) // > for non-decreasing order, < for non-increasing order
+                m = j;
         }
         temp = a[m];
         a[m] = a[i];
