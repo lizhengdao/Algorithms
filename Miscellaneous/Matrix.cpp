@@ -89,7 +89,7 @@ class Matrix
         }
         return mat[i][j];
     }
-    bool operator==(Matrix m)
+    bool operator==(Matrix<T> m)
     {
         if(rows != m.rows || cols!=m.cols)
         {
@@ -142,7 +142,7 @@ int main()
     }
     cout<<"\nMatrix 1\n"<<mat1;
     cout<<"\nMatrix 2\n"<<mat2;
-    cout<<"\nMatrix 1 is "<<(mat1==mat2?"":"not ")<<"equal to Matrix 2";
+    cout<<"\nMatrix 1 is "<<(mat1!=mat2?"not ":"")<<"equal to Matrix 2";
     cout<<"\nMatrix 1 + Matrix 2\n"<<(mat1+mat2);
     cout<<"\nMatrix 1 - Matrix 2\n"<<(mat1-mat2);
     return 0;
